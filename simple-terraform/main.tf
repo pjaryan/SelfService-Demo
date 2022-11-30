@@ -5,6 +5,14 @@ terraform {
       version = "3.1.0"
     }
   }
+  backend "remote" {
+    hostname = "backend.api.env0.com"
+    organization = "bde19c6d-d0dc-4b11-a951-8f43fe49db92.6de20c9c-e5a2-49a3-aee5-00c03204ec3a"
+
+    workspaces {
+      name = "randomstringgreenfieldev"
+    }
+  }
 }
 
 variable "refresh_date" {
