@@ -24,3 +24,6 @@ deploy:
     #     - terraform show -json .tf-plan > tf-plan.json
     #     - echo "OPA Check"
     #     - ./opa eval --fail-defined "data.terraform.validation.violations[msg]" --input tf-plan.json --data ./tf-lib.rego --data ./validation.rego --format values 1>&2
+    terraformApply:
+      after:
+        - terraform output "http://${module.acme-s3.s3_bucket_website_endpoint}"
